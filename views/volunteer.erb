@@ -1,5 +1,7 @@
-<h2>Volunteer: <%= @volunteer.name %></h2>
-<h3>Project: <%= @volunteer.project.title %></h3>
+<h2>Volunteer:</h2>
+<h4><%= @volunteer.name %></h4>
+<h3>Project:</h3>
+<h4><%= @volunteer.project.title %></h4>
 
 <form action="/projects/<%= @volunteer.project.id %>/volunteers/<%= @volunteer.id %>" method="post">
   <input name="_method" type="hidden" value="patch">

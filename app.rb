@@ -32,7 +32,7 @@ post('/projects') do
   project = Project.new({:title => title, :id => nil})
   project.save
   @projects = Project.all
-  erb(:projects)
+  redirect to('/projects')
 end
 
 get('/projects/:id/edit') do
@@ -44,14 +44,14 @@ patch('/projects/:id') do
   @project = Project.find(params[:id].to_i())
   @project.update(params)
   @projects = Project.all
-  erb(:projects)
+  redirect to('/projects')
 end
 
 delete('/projects/:id') do
   @project = Project.find(params[:id].to_i())
   @project.delete()
   @projects = Project.all
-  erb(:projects)
+  redirect to('/projects')
 end
 
 # gets detail for a specific volunteer
