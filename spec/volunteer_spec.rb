@@ -63,4 +63,13 @@ describe Volunteer do
       expect(volunteer1.name).to(eq("Joe"))
     end
   end
+
+  describe '#delete' do
+    it 'deletes a volunteer by id' do
+      volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
+      volunteer1.save
+      volunteer1.delete
+      expect(Volunteer.all).to(eq([]))
+    end
+  end
 end
