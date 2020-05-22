@@ -9,7 +9,8 @@ also_reload('lib/**/*.rb')
 DB = PG.connect({:dbname => "volunteer_tracker"})
 
 get('/') do
-  # home page
+  @projects = Project.all
+  erb(:projects)
 end
 
 get('/projects') do
@@ -23,7 +24,7 @@ end
 
 get('/projects/:id') do
   @project = Project.find(params[:id].to_i())
-  erb(:album)
+  erb(:project)
 end
 
 post('/projects') do
@@ -41,13 +42,13 @@ end
 
 patch('/projects/:id') do
   @project = Project.find(params[:id].to_i())
-  @project.update(params[:title])
+  @project.update(params)
   @projects = Project.all
   erb(:projects)
 end
 
-delete('projects/:id') do
-  project = Project.find(params[:id].to_i())
+delete('/projects/:id') do
+  @project = Project.find(params[:id].to_i())
   @project.delete()
   @projects = Project.all
   erb(:projects)
