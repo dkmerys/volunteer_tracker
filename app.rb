@@ -53,3 +53,33 @@ delete('/projects/:id') do
   @projects = Project.all
   erb(:projects)
 end
+
+# gets detail for a specific volunteer
+get('/projects/:id/volunteers/volunteer_id') do
+  @volunteer = Volunteer.find(params[:volunteer_id].to_i())
+  erb(:volunteer)
+end
+
+# create a new volunteer
+post('/projects/:id/volunteers') do
+  @project = Project.find(params[:id].to_i())
+  volunteer = Volunteer.new({:name => params[:volunteer_name], :project_id => @project.id, :id => nil})
+  volunteer.save
+  erb(:project)
+end
+
+#edit a volunteer then route back to project page
+patch('/projects/:id/volunteers/:volunteer_id') do
+  @project = Project.find(params[:id].to_i())
+  volunteer = Volunteer.find(params[:volunteer_id].to_i())
+  volunteer.update(params)
+  erb(:project)
+end
+
+# delete a volunteer then route back to project page
+delete('/projects/:id/volunteers/:volunteer_id') do
+  volunteer = Volunteer.find(params[:volunteer_id].to_i())
+  volunteer.delete
+  @project = Project.find(params[:id].to_i())
+  erb(:project)
+end
