@@ -37,11 +37,11 @@ class Project
     Volunteer.find_by_project(self.id)
   end
 
-  # def update(attributes)
-  #   @title = attributes[:title]
-  #   @id = attributes[:id]
-  #   DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id};")
-  # end
+  def update(attributes)
+    @title = attributes[:title]
+    # @id = attributes[:id]
+    DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id};")
+  end
 
   def delete
     DB.exec("DELETE FROM projects WHERE id = #{@id};")
