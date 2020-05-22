@@ -25,4 +25,11 @@ class Project
   def ==(project_to_compare)
     self.title == project_to_compare.title
   end
+
+  def self.find(id)
+    project = DB.exec("SELECT * FROM projects WHERE id = #{id};").first
+    title = project.fetch("title")
+    id = project.fetch("id").to_i
+    Project.new({:title => title, :id => id})
+  end
 end
