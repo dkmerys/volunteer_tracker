@@ -14,17 +14,17 @@ There are 2 ways to view this application
 
 1. Clone this repository to your machine
 2. Install packages Ruby Gem by typing `$ bundle install` in the command line
-3. Run the application by typing `ruby volunteer_tracker.rb` in the command line
+3. Run the application by typing `ruby app.rb` in the command line
 4. Visit localhost: 4567 to begin using the app
 
 or
 
-1. Visit https://boiling-plains-04680.herokuapp.com/ to view the web-hosted version
+1. Visit https://infinite-taiga-10676.herokuapp.com/ to view the web-hosted version
 
 
 ## Known Bugs
 
-This app does not currently replace numbers or give an error message when a number is entered.
+No bugs currently known
  
 ## Support and contact details
 
@@ -41,7 +41,17 @@ Capybara,
 Heroku
 
 ### Specs
-
+| Spec                                                                         |
+|------------------------------------------------------------------------------|
+| Will create a new Project object                                             |
+| Will save a Project object                                                   |
+| Will allow user to update a Project object                                   |
+| Will allow user to delete a Project object                                   |
+| Will create a new Volunteer object and associate with a Project object       |
+| Will save a Volunteer object                                                 |
+| Will allow user to update a Volunteer object                                 |
+| Will allow user to delete a Volunteer object                                 |
+| User can carry out actions via interface on web-hosted site or using Sinatra |
 
 ### License
 
