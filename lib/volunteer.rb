@@ -28,4 +28,12 @@ class Volunteer
     @id = result.first().fetch("id").to_i
   end
 
+  def self.find(id)
+    volunteer = DB.exec("SELECT * FROM volunteers WHERE id = #{id};").first
+    name = volunteer.fetch("name")
+    id = volunteer.fetch("id")
+    project_id = volunteer.fetch("project_id")
+    Volunteer.new(:name => name, :id => id, :project_id => project_id)
+  end
+
 end
